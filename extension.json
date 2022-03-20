@@ -1,0 +1,43 @@
+{
+  "identifier": "com.halfnibble.Goimports",
+  "name": "Goimports",
+  "organization": "halfnibble",
+  "description": "Runs goimports on golang files.",
+  "version": "1.0",
+  "categories": ["formatters", "languages"],
+
+  "main": "main.js",
+
+  "activationEvents": [
+    "onLanguage:go",
+    "onWorkspaceContains:go.mod",
+    "onWorkspaceContains:go.sum"
+  ],
+
+  "entitlements": {
+    "filesystem": "readwrite",
+    "process": true
+  },
+
+  "commands": {
+    "editor": [
+      {
+        "title": "Goimports",
+        "command": "goimports.runGoimports",
+        "when": "editorHasFocus",
+        "filters": {
+          "syntaxes": ["go"]
+        }
+      }
+    ]
+  },
+
+  "config": [
+    {
+      "key": "goimports.runOnSave",
+      "title": "Run Goimports automatically on save",
+      "type": "boolean",
+      "default": true
+    }
+  ]
+}
